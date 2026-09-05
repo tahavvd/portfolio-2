@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Taha Touil builds practical custom software systems for small businesses.">
+	<title>Taha Touil | Custom Business Software</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header class="site-header" id="top">
+		<nav class="nav container" aria-label="Main navigation">
+			<a class="brand" href="#top" aria-label="Taha Touil home"><span class="brand-mark">&lt;/&gt;</span><span>Taha Touil</span></a>
+			<div class="nav-links">
+				<a href="#services" data-i18n="nav.services">Services</a>
+				<a href="#work" data-i18n="nav.work">Work</a>
+				<a href="#process" data-i18n="nav.process">Process</a>
+				<a href="#contact" data-i18n="nav.contact">Contact</a>
+			</div>
+			<div class="nav-actions">
+				<button class="language-toggle" type="button" aria-label="Switch language"><span aria-hidden="true">◎</span><span class="language-label">EN</span></button>
+				<a class="github-link" href="https://github.com/tahavvd" target="_blank" rel="noreferrer">GitHub</a>
+				<a class="button button-small" href="#contact" data-i18n="nav.cta">Let's talk</a>
+			</div>
+			<button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+		</nav>
+	</header>
+
+	<main>
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="hero-glow"></div>
+			<div class="container hero-content">
+				<p class="eyebrow" data-i18n="hero.eyebrow">Custom software for everyday operations</p>
+				<h1 id="hero-title"><span data-i18n="hero.title1">Turn manual work</span><strong data-i18n="hero.title2">Into clear systems</strong></h1>
+				<p class="hero-copy" data-i18n="hero.copy">I build reliable web applications that help small businesses replace spreadsheets, paper, and avoidable mistakes with one clear way to work. With 1+ year of professional programming experience, I focus on systems people can trust.</p>
+				<div class="hero-actions">
+					<a class="button" href="#contact" data-i18n="hero.primary">Let's talk <span aria-hidden="true">↗</span></a>
+					<a class="button button-ghost" href="#work" data-i18n="hero.secondary">See my work</a>
+				</div>
+				<div class="hero-note"><span class="status-dot"></span><span data-i18n="hero.note">Available for individually scoped projects</span></div>
+			</div>
+			<a class="scroll-cue" href="#value" aria-label="Scroll to discover"><span></span></a>
+		</section>
+
+		<section class="section value-section" id="value">
+			<div class="container split-intro">
+				<div><p class="kicker" data-i18n="value.kicker">The useful part</p><h2 data-i18n="value.title">Software should make the day feel lighter.</h2></div>
+				<div><p class="large-copy" data-i18n="value.copy">When work lives across notebooks, messages, and disconnected spreadsheets, small errors become expensive. I turn that messy middle into a system your team can actually trust.</p><a class="text-link" href="#contact" data-i18n="value.link">Tell me where work gets stuck <span>↗</span></a></div>
+			</div>
+		</section>
+
+		<section class="section section-border" id="services">
+			<div class="container">
+				<div class="section-heading"><div><p class="kicker" data-i18n="services.kicker">What I build</p><h2 data-i18n="services.title">Tools made around your operation.</h2></div><p data-i18n="services.copy">Focused systems for the workflows that keep a business moving.</p></div>
+				<div class="service-grid">
+					<article class="service-card"><span class="service-number">01</span><div class="service-icon">▦</div><h3 data-i18n="service.inventory.title">Inventory &amp; operations</h3><p data-i18n="service.inventory.copy">Stock, suppliers, orders, and warehouses brought into one dependable system.</p><a href="#inventory" aria-label="View inventory project">↗</a></article>
+					<article class="service-card"><span class="service-number">02</span><div class="service-icon">◷</div><h3 data-i18n="service.booking.title">Booking &amp; scheduling</h3><p data-i18n="service.booking.copy">Real-time availability and staff scheduling that prevents double-bookings.</p><a href="#booking" aria-label="View booking project">↗</a></article>
+					<article class="service-card"><span class="service-number">03</span><div class="service-icon">⌘</div><h3 data-i18n="service.admin.title">Laravel + Filament panels</h3><p data-i18n="service.admin.copy">Clean, role-based dashboards for internal tools and repeatable work.</p><a href="#contact" aria-label="Discuss an admin panel">↗</a></article>
+					<article class="service-card"><span class="service-number">04</span><div class="service-icon">⌁</div><h3 data-i18n="service.tall.title">Full-stack TALL apps</h3><p data-i18n="service.tall.copy">A complete build from thoughtful interface to reliable database logic.</p><a href="#contact" aria-label="Discuss a full stack app">↗</a></article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section work-section" id="work">
+			<div class="container"><div class="section-heading"><div><p class="kicker" data-i18n="work.kicker">Selected work</p><h2 data-i18n="work.title">Built to solve the actual problem.</h2></div><p data-i18n="work.copy">A closer look at systems designed around real business constraints.</p></div>
+				<article class="project" id="inventory">
+					<div class="project-gallery" data-gallery="inventory"><button class="gallery-button prev" aria-label="Previous image">←</button><img src="images/inventory-1-dashboard.png" alt="Inventory management dashboard" data-gallery-image><button class="gallery-button next" aria-label="Next image">→</button><div class="gallery-dots" aria-label="Inventory screenshots"></div></div>
+					<div class="project-details"><div class="project-topline"><span class="badge badge-complete" data-i18n="work.completed">Completed</span><span class="project-index">01 / 02</span></div><h3 data-i18n="inventory.title">Inventory Management System</h3><p class="project-tagline" data-i18n="inventory.tagline">A clean, role-based inventory system for small businesses to track stock, manage orders, and handle suppliers in one place.</p><div class="case-study"><div><span data-i18n="case.problem">Problem</span><p data-i18n="inventory.problem">Manual stock tracking made errors hard to spot and accountability difficult.</p></div><div><span data-i18n="case.solution">Solution</span><p data-i18n="inventory.solution">One role-based workspace with live stock, order flows, and a full transaction history.</p></div><div><span data-i18n="case.outcome">Outcome</span><p data-i18n="inventory.outcome">A clear operational source of truth, with fewer stock surprises and visible responsibility.</p></div></div><div class="feature-list"><span>Live stock by warehouse</span><span>Order lifecycle controls</span><span>Audit trail</span><span>Role-based access</span></div><div class="project-actions"><a class="button" href="https://inventory-app-production-c037.up.railway.app/" target="_blank" rel="noreferrer" data-i18n="work.live">Live demo <span>↗</span></a><a class="button button-ghost" href="https://github.com/tahavvd/inventory-app" target="_blank" rel="noreferrer">GitHub</a></div><div class="credentials"><div><span class="credential-label" data-i18n="work.credentials">Demo credentials</span><code>admin@gmail.com</code><code>passwordAaBb</code></div><button type="button" class="copy-button" data-copy="admin@gmail.com | passwordAaBb" data-i18n="work.copyButton">Copy</button></div></div>
+				</article>
+
+				<article class="project project-reverse" id="booking">
+					<div class="project-gallery" data-gallery="booking"><button class="gallery-button prev" aria-label="Previous image">←</button><img src="images/booking-1-log-in.png" alt="Salon booking client flow" data-gallery-image><button class="gallery-button next" aria-label="Next image">→</button><div class="gallery-dots" aria-label="Booking screenshots"></div></div>
+					<div class="project-details"><div class="project-topline"><span class="badge badge-progress" data-i18n="work.progress">In progress</span><span class="project-index">02 / 02</span></div><h3 data-i18n="booking.title">Salon Appointment Booking</h3><p class="project-tagline" data-i18n="booking.tagline">A real-time booking flow replacing a paper notebook that caused double-bookings and scheduling chaos.</p><div class="case-study"><div><span data-i18n="case.problem">Problem</span><p data-i18n="booking.problem">A paper calendar made it easy to double-book clients or leave stylists idle.</p></div><div><span data-i18n="case.solution">Solution</span><p data-i18n="booking.solution">A phone-first flow with real availability, stylist schedules, and server-side rechecks.</p></div><div><span data-i18n="case.outcome">Progress</span><p data-i18n="booking.outcome">The client-facing booking experience is complete; the owner dashboard remains in active development.</p></div></div><div class="feature-list"><span>14-day availability</span><span>Service add-ons</span><span>Safe booking commit</span><span>No account required</span></div><div class="project-actions"><a class="button button-ghost" href="https://github.com/tahavvd/appointment-booking-system" target="_blank" rel="noreferrer">GitHub <span>↗</span></a></div></div>
+				</article>
+			</div>
+		</section>
+
+		<section class="section section-border" id="process"><div class="container"><div class="section-heading"><div><p class="kicker" data-i18n="process.kicker">How it works</p><h2 data-i18n="process.title">A clear path from problem to product.</h2></div></div><div class="process-grid"><div class="process-step"><span>01</span><h3 data-i18n="process.one.title">Discover</h3><p data-i18n="process.one.copy">We talk through the current workflow, friction, and desired outcome.</p></div><div class="process-step"><span>02</span><h3 data-i18n="process.two.title">Propose</h3><p data-i18n="process.two.copy">You get a focused scope, timeline, and practical approach for your project.</p></div><div class="process-step"><span>03</span><h3 data-i18n="process.three.title">Build</h3><p data-i18n="process.three.copy">The system takes shape with regular check-ins and visible progress.</p></div><div class="process-step"><span>04</span><h3 data-i18n="process.four.title">Launch</h3><p data-i18n="process.four.copy">Deployment, handover, and basic support to help the team get moving.</p></div></div></div></section>
+
+		<section class="section about-section"><div class="container about-grid"><div><p class="kicker" data-i18n="about.kicker">A little about me</p><h2 data-i18n="about.title">Practical thinking. Careful software.</h2></div><div><p class="large-copy" data-i18n="about.copy">I’m Taha, a freelance software developer focused on custom business web applications. I bring 1+ year of professional programming experience and a third-year Artificial Intelligence Engineering background to projects where clarity and reliability matter.</p><div class="stack-line"><span>PHP</span><span>Laravel</span><span>FilamentPHP</span><span>Livewire</span><span>Tailwind CSS</span></div></div></div></section>
+
+		<section class="contact-section" id="contact"><div class="container contact-inner"><div><p class="kicker" data-i18n="contact.kicker">Have a workflow in mind?</p><h2 data-i18n="contact.title">Let’s make it easier to run.</h2><p data-i18n="contact.copy">Tell me what is taking too much time, or where mistakes keep appearing. We can scope the right system together.</p></div><div class="contact-links"><a class="contact-link" href="mailto:tahatouiloffi@gmail.com"><span>Email</span><strong>tahatouiloffi@gmail.com</strong><span>↗</span></a><a class="contact-link" href="https://www.linkedin.com/in/taha-touil-9b07483b1" target="_blank" rel="noreferrer"><span>LinkedIn</span><strong>taha-touil</strong><span>↗</span></a><a class="contact-link" href="https://github.com/tahavvd" target="_blank" rel="noreferrer"><span>GitHub</span><strong>tahavvd</strong><span>↗</span></a></div></div></section>
+	</main>
+	<footer class="footer"><div class="container"><span>© 2026 Taha Touil</span><a href="#top" data-i18n="footer.back">Back to top ↑</a></div></footer>
+	<div class="lightbox" aria-hidden="true"><button class="lightbox-close" aria-label="Close gallery">×</button><img src="" alt=""></div>
+	<script src="script.js"></script>
+</body>
+</html>

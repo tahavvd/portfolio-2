@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Custom business software for small teams by Taha Touil.">
+	<title>Taha Touil — Custom software for small businesses</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--bg: #12151c;
+			--surface: #1b1f29;
+			--surface-2: #222733;
+			--text: #edebe4;
+			--text-muted: #9a9ca5;
+			--accent: #7180ff;
+			--accent-dim: rgba(113, 128, 255, .14);
+			--line: rgba(237, 235, 228, .13);
+			--mono: "Space Mono", "Courier New", monospace;
+			--sans: "Manrope", "Segoe UI", sans-serif;
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.65; }
+		a { color: inherit; text-decoration: none; }
+		a, button, input, textarea, select { font: inherit; }
+		button { cursor: pointer; }
+		:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+		::selection { background: var(--accent); color: var(--bg); }
+		.wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+		.mono { font-family: var(--mono); }
+		.muted { color: var(--text-muted); }
+		.eyebrow { color: var(--accent); font: 700 .76rem/1.4 var(--mono); letter-spacing: .03em; }
+		.site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(18, 21, 28, .92); backdrop-filter: blur(14px); }
+		.nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 24px; }
+		.brand { display: flex; align-items: center; gap: 10px; font: 700 .84rem var(--mono); }
+		.brand-mark { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--accent); color: var(--accent); font-size: .7rem; }
+		.nav-links { display: flex; gap: 25px; color: var(--text-muted); font: .72rem var(--mono); }
+		.nav-links a { transition: color .2s ease; }
+		.nav-links a:hover, .nav-links a:focus-visible { color: var(--text); }
+		.hero { min-height: 690px; display: grid; align-items: center; padding: 90px 0 100px; background: radial-gradient(circle at 78% 32%, rgba(113, 128, 255, .12), transparent 28%), var(--bg); }
+		.hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr); gap: 10%; align-items: end; }
+		h1, h2, h3 { margin: 0; font-family: var(--mono); line-height: 1.15; letter-spacing: -.04em; }
+		h1 { max-width: 760px; font-size: clamp(2.7rem, 7vw, 6.7rem); font-weight: 400; }
+		h1 strong { color: var(--accent); font-weight: 400; }
+		.hero-copy { max-width: 470px; margin: 30px 0 0; font-size: 1.05rem; color: var(--text-muted); }
+		.hero-copy strong { color: var(--text); font-weight: 600; }
+		.hero-actions { display: flex; gap: 15px; align-items: center; margin-top: 35px; flex-wrap: wrap; }
+		.button { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--accent); padding: 13px 18px; color: var(--text); background: var(--accent); font: 700 .74rem var(--mono); transition: transform .2s ease, background .2s ease, color .2s ease; }
+		.button:hover { transform: translateY(-2px); background: var(--text); border-color: var(--text); color: var(--bg); }
+		.button-quiet { border-color: var(--line); background: transparent; color: var(--text-muted); }
+		.button-quiet:hover { border-color: var(--text); background: transparent; color: var(--text); }
+		.hero-note { justify-self: end; max-width: 280px; padding-top: 40px; border-top: 1px solid var(--line); color: var(--text-muted); font-size: .9rem; }
+		.hero-note span { display: block; margin-bottom: 17px; color: var(--text); font: .7rem var(--mono); }
+		section { padding: 115px 0; scroll-margin-top: 70px; }
+		.tone { background: var(--surface); }
+		.section-top { display: flex; justify-content: space-between; gap: 30px; padding-bottom: 50px; border-bottom: 1px solid var(--line); }
+		.section-top h2 { max-width: 680px; font-size: clamp(1.8rem, 4vw, 3.4rem); font-weight: 400; }
+		.section-number { flex: 0 0 auto; color: var(--text-muted); font: .7rem var(--mono); }
+		.intro { max-width: 680px; margin: 45px 0 0; font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.5; }
+		.intro strong { color: var(--text); font-weight: 600; }
+		.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 55px; border-top: 1px solid var(--line); }
+		.service { padding: 32px 35px 34px 0; border-bottom: 1px solid var(--line); }
+		.service:nth-child(even) { padding-left: 35px; border-left: 1px solid var(--line); }
+		.service h3 { margin-bottom: 13px; font-size: 1.05rem; letter-spacing: -.02em; }
+		.service p { max-width: 430px; margin: 0; color: var(--text-muted); font-size: .92rem; }
+		.work-intro { max-width: 630px; margin: 38px 0 70px; color: var(--text-muted); }
+		.case-study { padding: 80px 0; border-top: 1px solid var(--line); }
+		.case-head { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: 10%; }
+		.case-title { font-size: clamp(1.65rem, 3vw, 2.7rem); font-weight: 400; }
+		.status { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 22px; color: var(--text-muted); font: .7rem var(--mono); }
+		.status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #76cf9b; }
+		.status.progress::before { background: var(--accent); }
+		.case-tagline { margin: 24px 0 0; color: var(--text-muted); font-size: 1rem; }
+		.story { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 65px 0; }
+		.story-item { padding-top: 15px; border-top: 1px solid var(--line); }
+		.story-item h3 { margin-bottom: 11px; font-size: .76rem; color: var(--accent); letter-spacing: .03em; }
+		.story-item p { margin: 0; color: var(--text-muted); font-size: .88rem; }
+		.feature-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 35px; margin: 0; padding: 0; list-style: none; }
+		.feature-list li { padding: 14px 0 14px 20px; border-bottom: 1px solid var(--line); color: var(--text-muted); font-size: .85rem; position: relative; }
+		.feature-list li::before { content: "+"; position: absolute; left: 0; color: var(--accent); font-family: var(--mono); }
+		.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 55px; }
+		.gallery figure { margin: 0; min-width: 0; }
+		.gallery img { display: block; width: 100%; aspect-ratio: 1.25 / 1; object-fit: cover; border: 1px solid var(--line); background: var(--surface-2); transition: border-color .2s ease, transform .2s ease; }
+		.gallery figure:hover img { transform: translateY(-3px); border-color: var(--accent); }
+		figcaption { margin-top: 10px; color: var(--text-muted); font: .68rem/1.45 var(--mono); }
+		.case-footer { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; margin-top: 55px; }
+		.case-links { display: flex; gap: 20px; flex-wrap: wrap; font: .74rem var(--mono); }
+		.text-link { color: var(--accent); border-bottom: 1px solid transparent; }
+		.text-link:hover { border-color: var(--accent); }
+		.credentials { width: min(100%, 400px); padding: 21px; border: 1px solid var(--line); background: var(--surface); }
+		.credentials h3 { margin-bottom: 14px; font-size: .75rem; letter-spacing: .02em; }
+		.credential-row { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 9px 0; border-top: 1px solid var(--line); font: .72rem var(--mono); }
+		.credential-row code { color: var(--text-muted); overflow-wrap: anywhere; }
+		.copy { border: 0; padding: 0; color: var(--accent); background: transparent; font: .68rem var(--mono); }
+		.copy:hover { color: var(--text); }
+		.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 60px; border-top: 1px solid var(--line); }
+		.step { padding: 25px 26px 0 0; border-right: 1px solid var(--line); }
+		.step + .step { padding-left: 25px; }
+		.step:last-child { border: 0; }
+		.step-num { color: var(--accent); font: .8rem var(--mono); }
+		.step h3 { margin: 28px 0 12px; font-size: 1rem; letter-spacing: -.02em; }
+		.step p { margin: 0; color: var(--text-muted); font-size: .85rem; }
+		.about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 10%; align-items: start; }
+		.about-grid h2 { font-size: clamp(1.8rem, 4vw, 3.4rem); font-weight: 400; }
+		.about-copy { max-width: 630px; margin: 0; color: var(--text-muted); font-size: 1.05rem; }
+		.contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 10%; }
+		.contact-grid h2 { font-size: clamp(2rem, 5vw, 4.6rem); font-weight: 400; }
+		.contact-copy { max-width: 440px; margin-top: 25px; color: var(--text-muted); }
+		.contact-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 40px; color: var(--accent); font: .74rem var(--mono); }
+		form { display: grid; gap: 22px; }
+		label { display: grid; gap: 8px; color: var(--text-muted); font: .7rem var(--mono); }
+		input, textarea, select { width: 100%; border: 1px solid var(--line); border-radius: 0; padding: 14px 15px; color: var(--text); background: var(--surface); outline: none; }
+		input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+		textarea { min-height: 130px; resize: vertical; }
+		footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--text-muted); font: .68rem var(--mono); }
+		.footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+		@media (max-width: 760px) {
+			.wrap { width: min(100% - 32px, 600px); }
+			.nav { min-height: 62px; }
+			.nav-links { gap: 11px; font-size: .62rem; }
+			.hero { min-height: 620px; padding: 65px 0 75px; }
+			.hero-grid, .case-head, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; }
+			.hero-note { justify-self: start; padding-top: 25px; }
+			section { padding: 80px 0; }
+			.section-top { padding-bottom: 30px; }
+			.section-top h2 { font-size: 1.75rem; }
+			.services-grid, .story, .feature-list, .process-grid { grid-template-columns: 1fr; }
+			.service, .service:nth-child(even) { padding: 25px 0; border-left: 0; }
+			.story { gap: 22px; margin: 45px 0; }
+			.gallery { grid-template-columns: repeat(2, 1fr); gap: 18px 10px; }
+			.case-study { padding: 60px 0; }
+			.case-footer { display: grid; }
+			.credentials { width: 100%; }
+			.step, .step + .step { padding: 22px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+			.step h3 { margin: 15px 0 8px; }
+			.footer-inner { display: block; }
+			.footer-inner span { display: block; margin-top: 8px; }
+		}
+		@media (prefers-reduced-motion: no-preference) {
+			.hero-content { animation: enter .7s ease both; }
+			.hero-note { animation: enter .7s .12s ease both; }
+			@keyframes enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+		}
+	</style>
+</head>
+<body>
+	<header class="site-header">
+		<nav class="nav wrap" aria-label="Main navigation">
+			<a class="brand" href="#top"><span class="brand-mark">TT</span> Taha Touil</a>
+			<div class="nav-links"><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="hero">
+			<div class="wrap hero-grid">
+				<div class="hero-content">
+					<div class="eyebrow">Custom software for growing businesses</div>
+					<h1>Replace busywork with systems that <strong>work.</strong></h1>
+					<p class="hero-copy">I build practical web applications for small businesses that are ready to move beyond spreadsheets, paper, and avoidable mistakes.</p>
+					<div class="hero-actions"><a class="button" href="#contact">Let’s talk about your project <span aria-hidden="true">↗</span></a><a class="button button-quiet" href="https://github.com/tahavvd" target="_blank" rel="noreferrer">View GitHub <span aria-hidden="true">↗</span></a></div>
+				</div>
+				<p class="hero-note"><span>// Built for the way your business actually works</span>Clean, role-based systems for inventory, bookings, operations, and the workflows that hold a business together.</p>
+			</div>
+		</section>
+
+		<section class="tone" aria-labelledby="fit-title">
+			<div class="wrap">
+				<div class="section-top"><h2 id="fit-title">Less manual work.<br>More control.</h2><span class="section-number">01 / why this</span></div>
+				<p class="intro">I help <strong>small businesses</strong> turn error-prone processes into clear, reliable tools — so your team can spend less time checking spreadsheets and more time running the business.</p>
+			</div>
+		</section>
+
+		<section id="services" aria-labelledby="services-title">
+			<div class="wrap">
+				<div class="section-top"><h2 id="services-title">The right system for the job.</h2><span class="section-number">02 / services</span></div>
+				<div class="services-grid">
+					<article class="service"><h3>Custom inventory &amp; operations systems</h3><p>Keep stock, suppliers, orders, and warehouses in one dependable system.</p></article>
+					<article class="service"><h3>Booking &amp; scheduling systems</h3><p>Give customers real-time availability while preventing double-bookings.</p></article>
+					<article class="service"><h3>Laravel + Filament admin panels</h3><p>Clean, focused dashboards for the internal work your team does every day.</p></article>
+					<article class="service"><h3>Full-stack TALL apps</h3><p>Custom web applications built from the interface to the database.</p></article>
+				</div>
+			</div>
+		</section>
+
+		<section id="work" class="tone" aria-labelledby="work-title">
+			<div class="wrap">
+				<div class="section-top"><h2 id="work-title">Work that solves a real problem.</h2><span class="section-number">03 / selected work</span></div>
+				<p class="work-intro">A look at two systems shaped around the people who use them, the problems they face, and the outcomes they need.</p>
+
+				<article class="case-study" id="inventory">
+					<div class="case-head"><div><div class="status">Completed</div><h3 class="case-title">Inventory Management System</h3></div><p class="case-tagline">A clean, role-based inventory management system for small businesses. Stock, orders, suppliers, and warehouses — all in one place.</p></div>
+					<div class="story"><div class="story-item"><h3>Problem</h3><p>Manual inventory tracking made stock levels hard to trust and errors easy to miss.</p></div><div class="story-item"><h3>Solution</h3><p>A single operations system with roles, stock movement, order history, and warehouse visibility.</p></div><div class="story-item"><h3>Outcome</h3><p>Fewer stock mistakes, a clear audit trail, and more control over daily operations.</p></div></div>
+					<ul class="feature-list"><li>Real-time stock tracking per product and warehouse</li><li>Automatic stock deduction and restoration on cancellation</li><li>Full stock transaction audit trail with filters</li><li>Order lifecycle and history management</li><li>Supplier-linked stock intake per warehouse</li><li>Admin and employee access levels</li></ul>
+					<div class="gallery">
+						<figure><img src="images/inventory-1-dashboard.png" alt="Inventory system dashboard overview" loading="lazy"><figcaption>01 / Dashboard overview</figcaption></figure>
+						<figure><img src="images/inventory-2-orders.png" alt="Inventory system orders screen" loading="lazy"><figcaption>02 / Order management</figcaption></figure>
+						<figure><img src="images/inventory-3-stock-transactions.png" alt="Inventory system stock transaction audit trail" loading="lazy"><figcaption>03 / Stock audit trail</figcaption></figure>
+						<figure><img src="images/inventroy-4-create-order.png" alt="Inventory system create order flow" loading="lazy"><figcaption>04 / Create an order</figcaption></figure>
+					</div>
+					<div class="case-footer"><div class="case-links"><a class="button" href="https://inventory-app-production-c037.up.railway.app/" target="_blank" rel="noreferrer">Open live demo <span aria-hidden="true">↗</span></a><a class="button button-quiet" href="https://github.com/tahavvd/inventory-app" target="_blank" rel="noreferrer">See the code <span aria-hidden="true">↗</span></a></div><div class="credentials"><h3>Demo credentials</h3><div class="credential-row"><span>Email</span><code>admin@gmail.com</code><button class="copy" type="button" data-copy="admin@gmail.com">copy</button></div><div class="credential-row"><span>Password</span><code>passwordAaBb</code><button class="copy" type="button" data-copy="passwordAaBb">copy</button></div></div></div>
+				</article>
+
+				<article class="case-study" id="booking">
+					<div class="case-head"><div><div class="status progress">In progress</div><h3 class="case-title">Salon Appointment Booking System</h3></div><p class="case-tagline">A real-time booking system built to replace a paper notebook that was causing double-bookings and scheduling chaos.</p></div>
+					<div class="story"><div class="story-item"><h3>Problem</h3><p>The salon owner relied on paper and often booked two clients into the same slot.</p></div><div class="story-item"><h3>Solution</h3><p>A phone-friendly booking flow with independent stylist schedules and live availability.</p></div><div class="story-item"><h3>In progress</h3><p>The client-facing flow is complete; the owner and staff admin dashboard is still being built.</p></div></div>
+					<ul class="feature-list"><li>Clients book by name and phone, with no account required</li><li>Services show photos, descriptions, price, and duration</li><li>Availability accounts for bookings and full service duration</li><li>Server checks prevent two clients taking one slot</li><li>Clients can view or cancel upcoming appointments</li><li>Built around a high-end salon experience</li></ul>
+					<div class="gallery">
+						<figure><img src="images/booking-1-log-in.png" alt="Salon booking client identification screen" loading="lazy"><figcaption>01 / Client identification</figcaption></figure>
+						<figure><img src="images/booking-2-services.png" alt="Salon booking service selection screen" loading="lazy"><figcaption>02 / Choose a service</figcaption></figure>
+						<figure><img src="images/booking-3-stylist-select.png" alt="Salon booking stylist selection screen" loading="lazy"><figcaption>03 / Choose a stylist</figcaption></figure>
+						<figure><img src="images/booking-4-select-slot.png" alt="Salon booking time slot selection screen" loading="lazy"><figcaption>04 / Select a time</figcaption></figure>
+					</div>
+					<div class="case-footer"><div><p class="muted">The system will not let two clients book the same slot, even when they choose it at the same time.</p><div class="case-links"><a class="button button-quiet" href="https://github.com/tahavvd/appointment-booking-system" target="_blank" rel="noreferrer">See the code <span aria-hidden="true">↗</span></a></div></div></div>
+				</article>
+			</div>
+		</section>
+
+		<section id="process" aria-labelledby="process-title"><div class="wrap"><div class="section-top"><h2 id="process-title">A clear path from problem to launch.</h2><span class="section-number">04 / process</span></div><div class="process-grid"><article class="step"><span class="step-num">01</span><h3>Discovery call or message</h3><p>We discuss the problem, the goals, and how the work happens today.</p></article><article class="step"><span class="step-num">02</span><h3>Proposal</h3><p>We agree on scope, timeline, and an approach for your project.</p></article><article class="step"><span class="step-num">03</span><h3>Build</h3><p>Development moves forward with regular check-ins along the way.</p></article><article class="step"><span class="step-num">04</span><h3>Launch &amp; handover</h3><p>Your system goes live with basic support and training.</p></article></div></div></section>
+
+		<section class="tone" aria-labelledby="about-title"><div class="wrap about-grid"><h2 id="about-title">A developer who thinks in workflows.</h2><p class="about-copy">I’m Taha Touil, a freelance software developer focused on custom business web applications. I have over a year of professional programming experience and I’m a third-year Artificial Intelligence Engineering student. My focus is simple: understand how a business works, then build the tool that makes that work clearer and more reliable.</p></div></section>
+
+		<section id="contact" aria-labelledby="contact-title"><div class="wrap contact-grid"><div><h2 id="contact-title">Have a process<br>worth improving?</h2><p class="contact-copy">Tell me what is slowing your team down. We can talk through the problem and see what a useful system would look like.</p><div class="contact-links"><a href="mailto:tahatouiloffi@gmail.com">Email</a><a href="https://www.linkedin.com/in/taha-touil-9b07483b1" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/tahavvd" target="_blank" rel="noreferrer">GitHub</a></div></div><form id="project-form"><label for="name">Your name<input id="name" name="name" autocomplete="name" required></label><label for="project">What are you building?<select id="project" name="project"><option>Inventory or operations system</option><option>Booking or scheduling system</option><option>Admin panel or internal tool</option><option>Something else</option></select></label><label for="message">A little about the project<textarea id="message" name="message" required placeholder="What does your current process look like?"></textarea></label><button class="button" type="submit">Start the conversation <span aria-hidden="true">↗</span></button></form></div></section>
+	</main>
+	<footer><div class="wrap footer-inner"><span>© 2026 Taha Touil</span><span>Custom software for small businesses</span></div></footer>
+	<script>
+		document.querySelectorAll('[data-copy]').forEach(function (button) {
+			button.addEventListener('click', function () {
+				navigator.clipboard.writeText(button.dataset.copy).then(function () {
+					var original = button.textContent;
+					button.textContent = 'copied';
+					setTimeout(function () { button.textContent = original; }, 1400);
+				});
+			});
+		});
+
+		document.getElementById('project-form').addEventListener('submit', function (event) {
+			event.preventDefault();
+			var form = new FormData(event.currentTarget);
+			var subject = encodeURIComponent('Project enquiry from ' + form.get('name'));
+			var body = encodeURIComponent('Project type: ' + form.get('project') + '\n\n' + form.get('message'));
+			window.location.href = 'mailto:tahatouiloffi@gmail.com?subject=' + subject + '&body=' + body;
+		});
+	</script>
+</body>
+</html>

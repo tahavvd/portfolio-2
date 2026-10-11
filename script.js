@@ -30,10 +30,10 @@ const translations = {
     'service.inventory.copy': 'Stock, suppliers, orders, and warehouses brought into one dependable system.',
     'service.booking.title': 'Booking & scheduling',
     'service.booking.copy': 'Real-time availability and staff scheduling that prevents double-bookings.',
-    'service.admin.title': 'Laravel + Filament panels',
+    'service.admin.title': 'Admin panels & dashboards',
     'service.admin.copy': 'Clean, role-based dashboards for internal tools and repeatable work.',
-    'service.tall.title': 'Full-stack TALL apps',
-    'service.tall.copy': 'A complete build from thoughtful interface to reliable database logic.',
+    'service.tall.title': 'Custom web apps',
+    'service.tall.copy': 'Built to your exact request, from the first idea to a reliable working system.',
     'work.kicker': 'Selected work',
     'work.title': 'Built to solve the actual problem.',
     'work.copy': 'A closer look at systems designed around real business constraints.',
@@ -97,10 +97,10 @@ const translations = {
     'service.inventory.copy': 'Stocks, fournisseurs, commandes et entrepôts réunis dans un système fiable.',
     'service.booking.title': 'Réservation et planning',
     'service.booking.copy': 'Disponibilités en temps réel et plannings qui évitent les doubles réservations.',
-    'service.admin.title': 'Panneaux Laravel + Filament',
+    'service.admin.title': 'Panneaux d’administration et tableaux de bord',
     'service.admin.copy': 'Des tableaux de bord clairs et basés sur les rôles pour vos outils internes.',
-    'service.tall.title': 'Applications TALL complètes',
-    'service.tall.copy': 'Une réalisation complète, de l’interface à la logique de base de données.',
+    'service.tall.title': 'Applications web sur mesure',
+    'service.tall.copy': 'Conçues selon votre besoin précis, de la première idée à un système fiable.',
     'work.kicker': 'Projets sélectionnés',
     'work.title': 'Conçus pour résoudre le vrai problème.',
     'work.copy': 'Un aperçu de systèmes pensés autour des contraintes réelles d’une entreprise.',
@@ -174,7 +174,7 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
   const dots = gallery.querySelector('.gallery-dots');
   galleries[key].forEach((src, i) => {
     const dot = document.createElement('button');
-    dot.setAttribute('aria-label', `Show image ${i+1}`);
+    dot.setAttribute('aria-label', `Show image ${i + 1}`);
     dot.addEventListener('click', () => {
       index = i;
       render()

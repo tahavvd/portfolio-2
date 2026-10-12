@@ -84,7 +84,7 @@
 						<div class="service-icon">▦</div>
 						<h3 data-i18n="service.inventory.title">Inventory &amp; operations</h3>
 						<p data-i18n="service.inventory.copy">Stock, suppliers, orders, and warehouses brought into one
-							dependable system.</p><a href="#inventory" aria-label="View inventory project">↗</a>
+							dependable system.</p><a href="#contact" aria-label="Discuss an inventory system">↗</a>
 					</article>
 					<article class="service-card"><span class="service-number">02</span>
 						<div class="service-icon">◷</div>
@@ -116,81 +116,87 @@
 					</div>
 					<p data-i18n="work.copy">A closer look at systems designed around real business constraints.</p>
 				</div>
-				<article class="project" id="inventory">
-					<div class="project-gallery" data-gallery="inventory"><button class="gallery-button prev"
-							aria-label="Previous image">←</button><img src="images/inventory-1-dashboard.png"
-							alt="Inventory management dashboard" data-gallery-image><button class="gallery-button next"
-							aria-label="Next image">→</button>
-						<div class="gallery-dots" aria-label="Inventory screenshots"></div>
-					</div>
-					<div class="project-details">
-						<div class="project-topline"><span class="badge badge-complete"
-								data-i18n="work.completed">Completed</span><span class="project-index">01 / 02</span>
-						</div>
-						<h3 data-i18n="inventory.title">Inventory Management System</h3>
-						<p class="project-tagline" data-i18n="inventory.tagline">A clean, role-based inventory system
-							for small businesses to track stock, manage orders, and handle suppliers in one place.</p>
-						<div class="case-study">
-							<div><span data-i18n="case.problem">Problem</span>
-								<p data-i18n="inventory.problem">Manual stock tracking made errors hard to spot and
-									accountability difficult.</p>
-							</div>
-							<div><span data-i18n="case.solution">Solution</span>
-								<p data-i18n="inventory.solution">One role-based workspace with live stock, order flows,
-									and a full transaction history.</p>
-							</div>
-							<div><span data-i18n="case.outcome">Outcome</span>
-								<p data-i18n="inventory.outcome">A clear operational source of truth, with fewer stock
-									surprises and visible responsibility.</p>
-							</div>
-						</div>
-						<div class="feature-list"><span>Live stock by warehouse</span><span>Order lifecycle
-								controls</span><span>Audit trail</span><span>Role-based access</span></div>
-						<div class="project-actions"><a class="button" href="https://inventory-app-utf1.onrender.com/"
-								target="_blank" rel="noreferrer" data-i18n="work.live">Live demo <span>↗</span></a><a
-								class="button button-ghost" href="https://github.com/tahavvd/inventory-app"
-								target="_blank" rel="noreferrer">GitHub</a></div>
-						<div class="credentials">
-							<div><span class="credential-label" data-i18n="work.credentials">Demo
-									credentials</span><code>admin@gmail.com</code><code>passwordAaBb</code></div><button
-								type="button" class="copy-button" data-copy="admin@gmail.com | passwordAaBb"
-								data-i18n="work.copyButton">Copy</button>
-						</div>
-					</div>
-				</article>
-
-				<article class="project project-reverse" id="booking">
-					<div class="project-gallery" data-gallery="booking"><button class="gallery-button prev"
-							aria-label="Previous image">←</button><img src="images/booking-1-log-in.png"
-							alt="Salon booking client flow" data-gallery-image><button class="gallery-button next"
-							aria-label="Next image">→</button>
-						<div class="gallery-dots" aria-label="Booking screenshots"></div>
-					</div>
-					<div class="project-details">
-						<div class="project-topline"><span class="badge badge-progress" data-i18n="work.progress">In
-								progress</span><span class="project-index">02 / 02</span></div>
-						<h3 data-i18n="booking.title">Salon Appointment Booking</h3>
-						<p class="project-tagline" data-i18n="booking.tagline">A real-time booking flow replacing a
+				<article class="case" id="booking" aria-labelledby="booking-title">
+					<header class="case-head">
+						<p class="case-type" data-i18n="booking.type">Booking &amp; scheduling system</p>
+						<h3 id="booking-title" data-i18n="booking.title">Salon Appointment Booking</h3>
+						<p class="case-tagline" data-i18n="booking.tagline">A real-time booking flow replacing a
 							paper notebook that caused double-bookings and scheduling chaos.</p>
-						<div class="case-study">
-							<div><span data-i18n="case.problem">Problem</span>
-								<p data-i18n="booking.problem">A paper calendar made it easy to double-book clients or
-									leave stylists idle.</p>
-							</div>
-							<div><span data-i18n="case.solution">Solution</span>
-								<p data-i18n="booking.solution">A phone-first flow with real availability, stylist
-									schedules, and server-side rechecks.</p>
-							</div>
-							<div><span data-i18n="case.outcome">Progress</span>
-								<p data-i18n="booking.outcome">The client-facing booking experience is complete; the
-									owner dashboard remains in active development.</p>
-							</div>
+						<div class="case-actions">
+							<a class="button" href="https://salon-booking-ggxo.onrender.com" target="_blank"
+								rel="noreferrer" data-i18n="work.live">Live demo <span>↗</span></a>
+							<a class="button button-ghost" href="https://github.com/tahavvd/appointment-booking-system"
+								target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
 						</div>
-						<div class="feature-list"><span>14-day availability</span><span>Service add-ons</span><span>Safe
-								booking commit</span><span>No account required</span></div>
-						<div class="project-actions"><a class="button button-ghost"
-								href="https://github.com/tahavvd/appointment-booking-system" target="_blank"
-								rel="noreferrer">GitHub <span>↗</span></a></div>
+						<p class="case-note" data-i18n="booking.note">Free hosting: the first load can take about a
+							minute.</p>
+					</header>
+
+					<div class="case-gallery" data-case-gallery>
+						<div class="case-stage">
+							<button class="case-arrow prev" type="button" aria-label="Previous image">←</button>
+							<div class="case-track">
+								<div class="case-slide"><img src="images/appointment-booking-system/dashboard.png"
+										alt="Admin dashboard (1 of 2)" decoding="async"></div>
+								<div class="case-slide"><img src="images/appointment-booking-system/dashboard-2.png"
+										alt="Admin dashboard (2 of 2)" loading="lazy" decoding="async"></div>
+								<div class="case-slide"><img
+										src="images/appointment-booking-system/haircust-manager.png"
+										alt="Services manager" loading="lazy" decoding="async"></div>
+								<div class="case-slide"><img src="images/appointment-booking-system/staff-manager.png"
+										alt="Staff manager" loading="lazy" decoding="async"></div>
+							</div>
+							<button class="case-arrow next" type="button" aria-label="Next image">→</button>
+						</div>
+						<div class="case-dots" aria-label="Booking screenshots"></div>
+					</div>
+
+					<div class="case-body">
+						<dl class="case-story">
+							<div>
+								<dt data-i18n="case.problem">Problem</dt>
+								<dd data-i18n="booking.problem">A paper calendar made it easy to double-book clients or
+									leave stylists idle.</dd>
+							</div>
+							<div>
+								<dt data-i18n="case.solution">Solution</dt>
+								<dd data-i18n="booking.solution">A phone-first booking flow with real availability, plus
+									separate staff and owner workspaces. Availability is rechecked on the server.</dd>
+							</div>
+							<div>
+								<dt data-i18n="case.outcome">Outcome</dt>
+								<dd data-i18n="booking.outcome">A complete system: clients book online, staff run their
+									day, and the owner manages services, schedules, and revenue from one dashboard.</dd>
+							</div>
+						</dl>
+						<ul class="case-features">
+							<li>14-day availability</li>
+							<li>Service add-ons</li>
+							<li>Safe booking commit</li>
+							<li>Staff &amp; owner dashboards</li>
+						</ul>
+						<div class="case-access">
+							<h4 data-i18n="access.title">Demo logins · tap to copy</h4>
+							<div class="access-row">
+								<span class="access-role" data-i18n="access.admin">Admin</span>
+								<div class="access-values">
+									<button type="button" class="copy-chip"
+										data-copy="admin@test.com">admin@test.com</button>
+									<button type="button" class="copy-chip"
+										data-copy="testing-password">testing-password</button>
+								</div>
+							</div>
+							<div class="access-row">
+								<span class="access-role" data-i18n="access.staff">Staff</span>
+								<div class="access-values">
+									<button type="button" class="copy-chip"
+										data-copy="aymen@gmail.com">aymen@gmail.com</button>
+									<button type="button" class="copy-chip" data-copy="password">password</button>
+								</div>
+							</div>
+							<p class="access-hint" data-i18n="access.client">Clients need no login: enter any name and
+								phone number on the booking page.</p>
+						</div>
 					</div>
 				</article>
 			</div>

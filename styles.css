@@ -390,8 +390,7 @@ h2 {
   background: var(--surface)
 }
 
-.service-number,
-.project-index {
+.service-number {
   color: #63718b;
   font-size: 12px;
   letter-spacing: .08em
@@ -426,171 +425,11 @@ h2 {
 }
 
 
-/* ==== Work / case studies (project layout + galleries) ==== */
+/* ==== Work section ==== */
 .work-section {
   padding-top: 117px
 }
 
-.project {
-  display: grid;
-  grid-template-columns: 1.03fr .97fr;
-  gap: 73px;
-  align-items: center;
-  padding: 45px 0 100px;
-  border-bottom: 1px solid var(--line)
-}
-
-.project+.project {
-  padding-top: 100px
-}
-
-.project-reverse .project-gallery {
-  order: 2
-}
-
-.project-reverse .project-details {
-  order: 1
-}
-
-.project-gallery {
-  position: relative;
-  aspect-ratio: 1.47/1;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, .25)
-}
-
-.project-gallery img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  cursor: zoom-in
-}
-
-.gallery-button {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  width: 38px;
-  height: 38px;
-  border: 1px solid rgba(255, 255, 255, .3);
-  border-radius: 50%;
-  background: rgba(10, 14, 23, .75);
-  color: white;
-  cursor: pointer;
-  transform: translateY(-50%);
-  opacity: 0;
-  transition: opacity .2s
-}
-
-.project-gallery:hover .gallery-button,
-.project-gallery:focus-within .gallery-button {
-  opacity: 1
-}
-
-.gallery-button.prev {
-  left: 15px
-}
-
-.gallery-button.next {
-  right: 15px
-}
-
-.gallery-dots {
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  display: flex;
-  gap: 6px;
-  transform: translateX(-50%)
-}
-
-.gallery-dots button {
-  width: 6px;
-  height: 6px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: #8090aa;
-  cursor: pointer
-}
-
-.gallery-dots button.active {
-  background: var(--blue);
-  box-shadow: 0 0 8px var(--blue)
-}
-
-.project-topline {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px
-}
-
-.badge {
-  padding: 5px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase
-}
-
-.badge-complete {
-  color: #76e0b0;
-  background: rgba(78, 213, 155, .1)
-}
-
-.badge-progress {
-  color: #f0c879;
-  background: rgba(240, 200, 121, .1)
-}
-
-.project h3 {
-  margin: 0;
-  font: 600 clamp(2rem, 3.5vw, 3.2rem)/1.05 var(--font-display);
-  letter-spacing: -.06em
-}
-
-.project-tagline {
-  margin: 22px 0 30px;
-  color: #b0b9ca;
-  font-size: 17px
-}
-
-.case-study {
-  display: grid;
-  gap: 17px;
-  padding: 21px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line)
-}
-
-.case-study span {
-  font-size: 11px;
-  color: var(--blue-bright);
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase
-}
-
-.case-study p {
-  margin: 3px 0 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.5
-}
-
-.feature-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 23px 0
-}
-
-.feature-list span,
 .stack-line span {
   padding: 6px 10px;
   border: 1px solid var(--line);
@@ -599,52 +438,329 @@ h2 {
   font-size: 12px
 }
 
-.project-actions {
+
+/* ==== Project case card (mobile-first) ==== */
+.case {
+  display: grid;
+  gap: 24px;
+  grid-template-areas: "head" "gallery" "body";
+  margin-top: 28px;
+  padding: 22px;
+  scroll-margin-top: 92px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .28)
+}
+
+.case-head {
+  grid-area: head;
+  min-width: 0
+}
+
+.case-gallery {
+  grid-area: gallery;
+  min-width: 0
+}
+
+.case-body {
+  grid-area: body;
+  display: grid;
+  gap: 20px;
+  min-width: 0
+}
+
+.case-type {
+  margin: 0 0 10px;
+  color: var(--blue-bright);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase
+}
+
+.case h3 {
+  margin: 0;
+  font: 600 clamp(1.9rem, 7vw, 2.8rem)/1.05 var(--font-display);
+  letter-spacing: -.05em
+}
+
+.case-tagline {
+  margin: 14px 0 20px;
+  color: #b0b9ca;
+  font-size: 16px
+}
+
+.case-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px
 }
 
-.credentials {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-top: 15px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  background: rgba(17, 24, 39, .65);
+.case-actions .button {
+  flex: 1 1 140px
+}
+
+.case-note {
+  margin: 12px 0 0;
+  color: var(--muted);
   font-size: 12px
 }
 
-.credentials>div {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap
+/* gallery: swipeable strip, next slide peeks in on phones */
+.case-stage {
+  position: relative
 }
 
-.credential-label {
+.case-track {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch
+}
+
+.case-track::-webkit-scrollbar {
+  display: none
+}
+
+.case-slide {
+  flex: 0 0 min(76vw, 440px);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  scroll-snap-align: start;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg)
+}
+
+.case-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  cursor: zoom-in
+}
+
+.case-arrow {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 50%;
+  background: rgba(10, 14, 23, .8);
+  color: white;
+  cursor: pointer;
+  transition: opacity .2s
+}
+
+.case-arrow.prev {
+  left: 10px
+}
+
+.case-arrow.next {
+  right: 10px
+}
+
+.case-arrow:disabled {
+  opacity: .3;
+  cursor: default
+}
+
+.case-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px
+}
+
+.case-dots button {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #3b4a66;
+  cursor: pointer;
+  transition: width .2s, background .2s
+}
+
+.case-dots button:after {
+  content: "";
+  position: absolute;
+  inset: -12px -4px
+}
+
+.case-dots button.active {
+  width: 22px;
+  background: var(--blue)
+}
+
+/* story, chips, demo logins */
+.case-story {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line)
+}
+
+.case-story dt {
   color: var(--blue-bright);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase
+}
+
+.case-story dd {
+  margin: 4px 0 0;
+  color: #aab5c8;
+  font-size: 14px;
+  line-height: 1.55
+}
+
+.case-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+.case-features li {
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #aab5c8;
+  font-size: 12px
+}
+
+.case-access {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(10, 14, 23, .55)
+}
+
+.case-access h4 {
+  margin: 0 0 6px;
+  color: var(--blue-bright);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase
+}
+
+.access-row {
+  display: grid;
+  gap: 8px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line)
+}
+
+.access-row:first-of-type {
+  border-top: 0
+}
+
+.access-role {
+  color: var(--muted);
+  font-size: 12px;
   font-weight: 700
 }
 
-.credentials code {
-  color: #ccd5e5
+.access-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px
 }
 
-.copy-button {
-  padding: 4px 8px;
+.copy-chip {
+  min-height: 44px;
+  padding: 0 14px;
   border: 1px solid var(--line);
-  border-radius: 5px;
-  background: transparent;
-  color: var(--muted);
+  border-radius: 10px;
+  background: var(--surface);
+  color: #ccd5e5;
+  font: 500 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   cursor: pointer;
-  font-size: 12px
+  transition: border-color .2s, color .2s
 }
 
-.copy-button:hover {
-  color: white;
+.copy-chip:hover {
   border-color: var(--blue)
+}
+
+.copy-chip.copied {
+  border-color: #4ed59b;
+  color: #76e0b0
+}
+
+.access-hint {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5
+}
+
+/* phones/tablets: gallery bleeds to the card edges so images are bigger */
+@media(max-width:899px) {
+  .case-gallery {
+    margin-inline: -22px
+  }
+
+  .case-track {
+    padding-inline: 22px;
+    scroll-padding-inline: 22px
+  }
+}
+
+/* desktop: text on the left, gallery on the right */
+@media(min-width:900px) {
+  .case {
+    grid-template-columns: 1fr 1.05fr;
+    grid-template-areas: "head gallery" "body gallery";
+    grid-template-rows: auto 1fr;
+    gap: 28px 48px;
+    align-items: start;
+    padding: 40px
+  }
+
+  .case-gallery {
+    position: sticky;
+    top: 100px
+  }
+
+  .case-slide {
+    flex-basis: 100%
+  }
+
+  .case-slide img {
+    max-height: 520px
+  }
+
+  .case-actions .button {
+    flex: 0 0 auto
+  }
+}
+
+/* arrows only where a mouse exists; phones swipe */
+@media(hover:hover) and (pointer:fine) {
+  .case-arrow {
+    display: block
+  }
 }
 
 
@@ -901,35 +1017,6 @@ h2 {
     min-height: 280px
   }
 
-  .project,
-  .project-reverse {
-    display: flex;
-    flex-direction: column;
-    gap: 37px;
-    padding: 28px 0 70px
-  }
-
-  .project+.project {
-    padding-top: 70px
-  }
-
-  .project-reverse .project-gallery,
-  .project-reverse .project-details {
-    order: initial
-  }
-
-  .project-gallery {
-    width: 100%
-  }
-
-  .gallery-button {
-    opacity: 1
-  }
-
-  .project h3 {
-    font-size: 2.4rem
-  }
-
   .process-grid {
     grid-template-columns: 1fr 1fr;
     gap: 0
@@ -991,11 +1078,6 @@ h2 {
     margin-top: 28px
   }
 
-  .credentials {
-    align-items: flex-start;
-    flex-direction: column
-  }
-
   .contact-link {
     grid-template-columns: 70px 1fr 16px;
     font-size: 12px
@@ -1003,10 +1085,6 @@ h2 {
 
   .contact-link strong {
     overflow-wrap: anywhere
-  }
-
-  .project-tagline {
-    font-size: 16px
   }
 }
 

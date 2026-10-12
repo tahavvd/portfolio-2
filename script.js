@@ -1,9 +1,3 @@
-// ---- Data: image lists for each project gallery ----
-const galleries = {
-  inventory: ['images/inventory-1-dashboard.png', 'images/inventory-2-orders.png', 'images/inventory-3-stock-transactions.png', 'images/inventroy-4-create-order.png'],
-  booking: ['images/booking-1-log-in.png', 'images/booking-2-services.png', 'images/booking-3-stylist-select.png', 'images/booking-4-select-slot.png']
-};
-
 // ---- Data: EN/FR text dictionary, keyed by data-i18n attributes ----
 const translations = {
   en: {
@@ -37,11 +31,7 @@ const translations = {
     'work.kicker': 'Selected work',
     'work.title': 'Built to solve the actual problem.',
     'work.copy': 'A closer look at systems designed around real business constraints.',
-    'work.completed': 'Completed',
-    'work.progress': 'In progress',
     'work.live': 'Live demo ↗',
-    'work.credentials': 'Demo credentials',
-    'work.copyButton': 'Copy',
     'case.problem': 'Problem',
     'case.solution': 'Solution',
     'case.outcome': 'Outcome',
@@ -53,8 +43,14 @@ const translations = {
     'booking.title': 'Salon Appointment Booking',
     'booking.tagline': 'A real-time booking flow replacing a paper notebook that caused double-bookings and scheduling chaos.',
     'booking.problem': 'A paper calendar made it easy to double-book clients or leave stylists idle.',
-    'booking.solution': 'A phone-first flow with real availability, stylist schedules, and server-side rechecks.',
-    'booking.outcome': 'The client-facing booking experience is complete; the owner dashboard remains in active development.',
+    'booking.solution': 'A phone-first booking flow with real availability, plus separate staff and owner workspaces. Availability is rechecked on the server.',
+    'booking.outcome': 'A complete system: clients book online, staff run their day, and the owner manages services, schedules, and revenue from one dashboard.',
+    'booking.type': 'Booking & scheduling system',
+    'booking.note': 'Free hosting: the first load can take about a minute.',
+    'access.title': 'Demo logins · tap to copy',
+    'access.admin': 'Admin',
+    'access.staff': 'Staff',
+    'access.client': 'Clients need no login: enter any name and phone number on the booking page.',
     'process.kicker': 'How it works',
     'process.title': 'A clear path from problem to product.',
     'process.one.title': 'Discover',
@@ -104,11 +100,7 @@ const translations = {
     'work.kicker': 'Projets sélectionnés',
     'work.title': 'Conçus pour résoudre le vrai problème.',
     'work.copy': 'Un aperçu de systèmes pensés autour des contraintes réelles d’une entreprise.',
-    'work.completed': 'Terminé',
-    'work.progress': 'En cours',
     'work.live': 'Démo en ligne ↗',
-    'work.credentials': 'Accès de démonstration',
-    'work.copyButton': 'Copier',
     'case.problem': 'Problème',
     'case.solution': 'Solution',
     'case.outcome': 'Résultat',
@@ -120,8 +112,14 @@ const translations = {
     'booking.title': 'Réservation pour salon',
     'booking.tagline': 'Un parcours de réservation en temps réel qui remplace un carnet papier source de doublons et de désordre.',
     'booking.problem': 'Un calendrier papier facilitait les doubles réservations et les heures creuses.',
-    'booking.solution': 'Un parcours mobile avec disponibilités réelles, plannings et contrôles côté serveur.',
-    'booking.outcome': 'Le parcours client est terminé ; le tableau de bord propriétaire est encore en développement actif.',
+    'booking.solution': 'Un parcours de réservation mobile avec disponibilités réelles, plus des espaces séparés pour le personnel et le propriétaire. Les disponibilités sont revérifiées côté serveur.',
+    'booking.outcome': 'Un système complet : les clients réservent en ligne, le personnel gère sa journée et le propriétaire pilote services, plannings et chiffres depuis un seul tableau de bord.',
+    'booking.type': 'Système de réservation et de planning',
+    'booking.note': 'Hébergement gratuit : le premier chargement peut prendre environ une minute.',
+    'access.title': 'Accès démo · touchez pour copier',
+    'access.admin': 'Admin',
+    'access.staff': 'Équipe',
+    'access.client': 'Aucune connexion pour les clients : entrez un nom et un numéro quelconques sur la page de réservation.',
     'process.kicker': 'Comment ça marche',
     'process.title': 'Un chemin clair, du problème au produit.',
     'process.one.title': 'Découvrir',
@@ -166,44 +164,6 @@ document.querySelector('.language-toggle').addEventListener('click', () => {
   applyLanguage()
 });
 
-// ---- Image gallery: prev/next, dots, click-to-open lightbox ----
-document.querySelectorAll('[data-gallery]').forEach(gallery => {
-  const key = gallery.dataset.gallery;
-  let index = 0;
-  const image = gallery.querySelector('[data-gallery-image]');
-  const dots = gallery.querySelector('.gallery-dots');
-  galleries[key].forEach((src, i) => {
-    const dot = document.createElement('button');
-    dot.setAttribute('aria-label', `Show image ${i + 1}`);
-    dot.addEventListener('click', () => {
-      index = i;
-      render()
-    });
-    dots.append(dot)
-  });
-
-  function render() {
-    image.src = galleries[key][index];
-    gallery.querySelectorAll('.gallery-dots button').forEach((dot, i) => dot.classList.toggle('active', i === index))
-  }
-  gallery.querySelector('.prev').addEventListener('click', () => {
-    index = (index - 1 + galleries[key].length) % galleries[key].length;
-    render()
-  });
-  gallery.querySelector('.next').addEventListener('click', () => {
-    index = (index + 1) % galleries[key].length;
-    render()
-  });
-  image.addEventListener('click', () => {
-    const lightbox = document.querySelector('.lightbox');
-    lightbox.querySelector('img').src = image.src;
-    lightbox.querySelector('img').alt = image.alt;
-    lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden', 'false')
-  });
-  render()
-});
-
 // ---- Lightbox open/close ----
 const lightbox = document.querySelector('.lightbox');
 
@@ -236,16 +196,81 @@ async function copyText(value) {
   if (!copied) throw new Error('Copy failed')
 }
 
-// ---- Copy button click handlers (credentials) ----
-document.querySelectorAll('.copy-button').forEach(button => button.addEventListener('click', async () => {
-  const original = button.textContent;
-  try {
-    await copyText(button.dataset.copy);
-    button.textContent = language === 'fr' ? 'Copié' : 'Copied'
-  } catch {
-    button.textContent = language === 'fr' ? 'Échec' : 'Failed'
+// ---- Case-study galleries: swipe strip, dots, arrows, tap to enlarge ----
+function openLightbox(src, alt) {
+  lightbox.querySelector('img').src = src;
+  lightbox.querySelector('img').alt = alt;
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false')
+}
+
+document.querySelectorAll('[data-case-gallery]').forEach(gallery => {
+  const track = gallery.querySelector('.case-track');
+  const slides = [...track.children];
+  const dotsBox = gallery.querySelector('.case-dots');
+  const prev = gallery.querySelector('.case-arrow.prev');
+  const next = gallery.querySelector('.case-arrow.next');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let index = 0;
+
+  const dots = slides.map((slide, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Show image ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsBox.append(dot);
+    return dot
+  });
+
+  function setActive(i) {
+    index = i;
+    dots.forEach((dot, n) => dot.classList.toggle('active', n === i));
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1
   }
-  setTimeout(() => button.textContent = original, 1500)
+
+  function goTo(i) {
+    const target = Math.max(0, Math.min(slides.length - 1, i));
+    const pad = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+    track.scrollTo({
+      left: slides[target].offsetLeft - pad,
+      behavior: reduceMotion.matches ? 'auto' : 'smooth'
+    });
+    setActive(target)
+  }
+
+  prev.addEventListener('click', () => goTo(index - 1));
+  next.addEventListener('click', () => goTo(index + 1));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(slides.indexOf(entry.target))
+    })
+  }, { root: track, threshold: 0.6 });
+  slides.forEach(slide => observer.observe(slide));
+
+  slides.forEach(slide => {
+    const img = slide.querySelector('img');
+    img.addEventListener('click', () => openLightbox(img.currentSrc || img.src, img.alt))
+  });
+  setActive(0)
+});
+
+// ---- Tap-to-copy chips (demo logins) ----
+document.querySelectorAll('.copy-chip').forEach(chip => chip.addEventListener('click', async () => {
+  if (chip.classList.contains('copied')) return;
+  const original = chip.textContent;
+  try {
+    await copyText(chip.dataset.copy);
+    chip.textContent = language === 'fr' ? 'Copié ✓' : 'Copied ✓';
+    chip.classList.add('copied')
+  } catch {
+    chip.textContent = language === 'fr' ? 'Échec' : 'Failed'
+  }
+  setTimeout(() => {
+    chip.textContent = original;
+    chip.classList.remove('copied')
+  }, 1400)
 }));
 
 // ---- Header scroll effect + mobile hamburger menu ----

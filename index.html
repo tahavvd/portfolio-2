@@ -84,7 +84,7 @@
 						<div class="service-icon">▦</div>
 						<h3 data-i18n="service.inventory.title">Inventory &amp; operations</h3>
 						<p data-i18n="service.inventory.copy">Stock, suppliers, orders, and warehouses brought into one
-							dependable system.</p><a href="#contact" aria-label="Discuss an inventory system">↗</a>
+							dependable system.</p><a href="#inventory" aria-label="View inventory project">↗</a>
 					</article>
 					<article class="service-card"><span class="service-number">02</span>
 						<div class="service-icon">◷</div>
@@ -105,6 +105,7 @@
 							working system.</p><a href="#contact" aria-label="Discuss a custom web app">↗</a>
 					</article>
 				</div>
+			</div>
 		</section>
 
 		<section class="section work-section" id="work">
@@ -171,10 +172,10 @@
 							</div>
 						</dl>
 						<ul class="case-features">
-							<li>14-day availability</li>
-							<li>Service add-ons</li>
-							<li>Safe booking commit</li>
-							<li>Staff &amp; owner dashboards</li>
+							<li data-i18n="booking.f1">14-day availability</li>
+							<li data-i18n="booking.f2">Service add-ons</li>
+							<li data-i18n="booking.f3">Safe booking commit</li>
+							<li data-i18n="booking.f4">Staff &amp; owner dashboards</li>
 						</ul>
 						<div class="case-access">
 							<h4 data-i18n="access.title">Demo logins · tap to copy</h4>
@@ -197,6 +198,87 @@
 							</div>
 							<p class="access-hint" data-i18n="access.client">Clients need no login: enter any name and
 								phone number on the booking page.</p>
+						</div>
+					</div>
+				</article>
+
+				<article class="case" id="inventory" aria-labelledby="inventory-title">
+					<header class="case-head">
+						<p class="case-type" data-i18n="inventory.type">Inventory &amp; order management system</p>
+						<h3 id="inventory-title" data-i18n="inventory.title">Inventory Management System</h3>
+						<p class="case-tagline" data-i18n="inventory.tagline">A clean, role-based inventory system for
+							small businesses to track stock, manage orders, and handle suppliers in one place.</p>
+						<div class="case-actions">
+							<a class="button" href="https://inventory-app-utf1.onrender.com/admin/login" target="_blank"
+								rel="noreferrer" data-i18n="work.live">Live demo <span>↗</span></a>
+							<a class="button button-ghost" href="https://github.com/tahavvd/inventory-app"
+								target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+						</div>
+						<p class="case-note" data-i18n="inventory.note">Heads up: this demo runs on free hosting that
+							sleeps when idle, so the first load can take up to a minute. That's the hosting, not the
+							app.</p>
+					</header>
+
+					<div class="case-gallery" data-case-gallery>
+						<div class="case-stage">
+							<button class="case-arrow prev" type="button" aria-label="Previous image">←</button>
+							<div class="case-track">
+								<div class="case-slide"><img src="images/inventory-app/inventory-1-dashboard.png"
+										alt="Inventory dashboard (1 of 4)" loading="lazy" decoding="async"></div>
+								<div class="case-slide"><img src="images/inventory-app/inventory-2-orders.png"
+										alt="Orders list with status actions (2 of 4)" loading="lazy" decoding="async">
+								</div>
+								<div class="case-slide"><img
+										src="images/inventory-app/inventory-3-stock-transactions.png"
+										alt="Stock transactions history (3 of 4)" loading="lazy" decoding="async"></div>
+								<div class="case-slide"><img src="images/inventory-app/inventroy-4-create-order.png"
+										alt="Create order form (4 of 4)" loading="lazy" decoding="async"></div>
+							</div>
+							<button class="case-arrow next" type="button" aria-label="Next image">→</button>
+						</div>
+						<div class="case-dots" aria-label="Inventory screenshots"></div>
+					</div>
+
+					<div class="case-body">
+						<dl class="case-story">
+							<div>
+								<dt data-i18n="case.problem">Problem</dt>
+								<dd data-i18n="inventory.problem">Manual stock tracking made errors hard to spot and
+									accountability difficult.</dd>
+							</div>
+							<div>
+								<dt data-i18n="case.solution">Solution</dt>
+								<dd data-i18n="inventory.solution">One role-based workspace with live stock per
+									warehouse, a guided order flow, and an automatic transaction history. Orders are
+									checked against real stock on the server, and cancellations restore it.</dd>
+							</div>
+							<div>
+								<dt data-i18n="case.outcome">Outcome</dt>
+								<dd data-i18n="inventory.outcome">A single source of truth: every stock movement is
+									recorded, low-stock alerts fire before items run out, and each order shows who
+									changed
+									its status and when.</dd>
+							</div>
+						</dl>
+						<ul class="case-features">
+							<li data-i18n="inventory.f1">Live stock per warehouse</li>
+							<li data-i18n="inventory.f2">Low-stock alerts</li>
+							<li data-i18n="inventory.f3">Order status tracking</li>
+							<li data-i18n="inventory.f4">Admin &amp; employee roles</li>
+						</ul>
+						<div class="case-access">
+							<h4 data-i18n="access.title">Demo logins · tap to copy</h4>
+							<div class="access-row">
+								<span class="access-role" data-i18n="access.admin">Admin</span>
+								<div class="access-values">
+									<button type="button" class="copy-chip"
+										data-copy="admin@gmail.com">admin@gmail.com</button>
+									<button type="button" class="copy-chip"
+										data-copy="passwordAaBb">passwordAaBb</button>
+								</div>
+							</div>
+							<p class="access-hint" data-i18n="inventory.access.hint">Admins see everything, including
+								employee management. Employee accounts only get the day-to-day operations.</p>
 						</div>
 					</div>
 				</article>

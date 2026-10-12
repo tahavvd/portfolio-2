@@ -78,6 +78,11 @@ const translations = {
     'contact.kicker': 'Have a workflow in mind?',
     'contact.title': 'Let’s make it easier to run.',
     'contact.copy': 'Tell me what is taking too much time, or where mistakes keep appearing. We can scope the right system together.',
+    'contact.phone': 'Phone',
+    'tech.title': 'Technologies I work with',
+    'tech.backend': 'Backend',
+    'tech.frontend': 'Frontend',
+    'tech.data': 'Databases & tools',
     'footer.back': 'Back to top ↑'
   },
   fr: {
@@ -158,6 +163,11 @@ const translations = {
     'contact.kicker': 'Un flux de travail à améliorer ?',
     'contact.title': 'Rendons-le plus simple.',
     'contact.copy': 'Dites-moi ce qui prend trop de temps ou où les erreurs apparaissent. Définissons ensemble le bon système.',
+    'contact.phone': 'Téléphone',
+    'tech.title': 'Technologies que j’utilise',
+    'tech.backend': 'Backend',
+    'tech.frontend': 'Frontend',
+    'tech.data': 'Bases de données et outils',
     'footer.back': 'Retour en haut ↑'
   }
 };

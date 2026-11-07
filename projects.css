@@ -1,0 +1,198 @@
+/* Styles for projects.html only. Loads after styles.css and reuses its tokens
+   (--bg, --surface, --line, --blue ...) so the page matches the main site. */
+
+/* ==== Page intro ==== */
+.projects-hero {
+    position: relative;
+    padding: 150px 0 56px
+}
+
+/* grid backdrop lives on its own layer so the fade never touches the text */
+.projects-hero:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(94, 135, 202, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(94, 135, 202, .05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    background-position: center top;
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent);
+    mask-image: linear-gradient(to bottom, #000 60%, transparent)
+}
+
+.projects-hero .section-heading {
+    margin-bottom: 0
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 34px;
+    color: var(--muted);
+    font-size: 14px;
+    transition: color .2s
+}
+
+.back-link:hover {
+    color: var(--text)
+}
+
+.page-title {
+    max-width: 720px;
+    margin: 0;
+    font: 600 clamp(2.4rem, 5vw, 4.4rem)/1.02 var(--font-display);
+    letter-spacing: -.065em
+}
+
+/* ==== Project cards ==== */
+.projects-list {
+    padding: 0 0 120px
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    transition: border-color .25s
+}
+
+.project-card:hover {
+    border-color: rgba(77, 141, 255, .45)
+}
+
+/* image area: real screenshot, or a default panel when the path is "#" or broken */
+.project-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg)
+}
+
+.project-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top
+}
+
+.project-placeholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: var(--blue);
+    font: 600 clamp(3rem, 6vw, 4.2rem)/1 var(--font-display);
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(circle at 50% 50%, rgba(50, 104, 204, .2), transparent 60%),
+        linear-gradient(rgba(94, 135, 202, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(94, 135, 202, .08) 1px, transparent 1px);
+    background-size: auto, 28px 28px, 28px 28px
+}
+
+.project-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 11px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(10, 14, 23, .82);
+    color: var(--blue-bright);
+    font-size: 12px;
+    font-weight: 700
+}
+
+.project-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px
+}
+
+.project-type {
+    margin: 0;
+    color: var(--blue-bright);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase
+}
+
+.project-card h2 {
+    margin: 0;
+    font: 600 24px/1.15 var(--font-display);
+    letter-spacing: -.04em
+}
+
+.project-desc {
+    margin: 0;
+    color: #aab5c8;
+    font-size: 14px;
+    line-height: 1.55
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none
+}
+
+.project-tags li {
+    padding: 5px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: #aab5c8;
+    font-size: 12px
+}
+
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 14px
+}
+
+/* ==== Responsive ==== */
+@media(max-width:1000px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media(max-width:800px) {
+    .projects-hero {
+        padding: 118px 0 40px
+    }
+
+    .back-link {
+        margin-bottom: 26px
+    }
+
+    .projects-list {
+        padding-bottom: 84px
+    }
+}
+
+@media(max-width:640px) {
+    .project-grid {
+        grid-template-columns: 1fr
+    }
+}
